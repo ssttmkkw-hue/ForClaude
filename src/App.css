@@ -1,0 +1,15 @@
+.app { max-width: 520px; margin: 0 auto; padding: 32px 16px; }
+h1 { margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 24px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.card h2 { margin: 0 0 12px; font-size: 1.1rem; }
+button { font: inherit; padding: 8px 14px; border-radius: 8px; border: 0; background: var(--accent); color: #fff; cursor: pointer; }
+button:hover { filter: brightness(1.1); }
+.row { display: flex; gap: 8px; margin-bottom: 12px; }
+.row input { flex: 1; font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); }
+ul { list-style: none; margin: 0; padding: 0; }
+li { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--border); }
+li:last-child { border-bottom: 0; }
+li.done label { text-decoration: line-through; color: var(--muted); }
+li label { display: flex; gap: 8px; align-items: center; }
+.x { background: transparent; color: var(--muted); padding: 2px 8px; font-size: 1.2rem; }

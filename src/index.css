@@ -1,0 +1,8 @@
+:root {
+  --bg: #f6f7fb; --fg: #1d2330; --card: #fff; --border: #e3e6ee; --muted: #7a8296; --accent: #4f6bed;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14171f; --fg: #e7eaf2; --card: #1d212c; --border: #2c3242; --muted: #8e97ad; --accent: #6b83ff; }
+}
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
