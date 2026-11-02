@@ -1,13 +1,36 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
+// 数据存在手机本地（localStorage），关掉 app 再打开还在
+function load(key, fallback) {
+  try {
+    const v = localStorage.getItem(key)
+    return v === null ? fallback : JSON.parse(v)
+  } catch {
+    return fallback
+  }
+}
+
+function save(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value))
+  } catch {
+    /* 隐私模式等情况下忽略 */
+  }
+}
+
 export default function App() {
-  const [count, setCount] = useState(0)
-  const [todos, setTodos] = useState([
-    { id: 1, text: '建一个 GitHub 仓库', done: true },
-    { id: 2, text: '接上 Netlify 自动部署', done: false },
-  ])
+  const [count, setCount] = useState(() => load('count', 0))
+  const [todos, setTodos] = useState(() =>
+    load('todos', [
+      { id: 1, text: '建一个 GitHub 仓库', done: true },
+      { id: 2, text: '接上 Netlify 自动部署', done: false },
+    ]),
+  )
   const [draft, setDraft] = useState('')
+
+  useEffect(() => save('count', count), [count])
+  useEffect(() => save('todos', todos), [todos])
 
   const addTodo = (e) => {
     e.preventDefault()
@@ -24,8 +47,8 @@ export default function App() {
 
   return (
     <main className="app">
-      <h1>React Hello Demo</h1>
-      <p className="sub">一个用来跑通「建仓库 → Netlify 部署」流程的小项目</p>
+      <h1>待办</h1>
+      <p className="sub">计数器 + 待办清单，数据保存在本机</p>
 
       <section className="card">
         <h2>计数器</h2>

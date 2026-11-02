@@ -6,3 +6,12 @@
   :root { --bg: #14171f; --fg: #e7eaf2; --card: #1d212c; --border: #2c3242; --muted: #8e97ad; --accent: #6b83ff; }
 }
 body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { overscroll-behavior-y: none; }
+body {
+  -webkit-user-select: none; user-select: none;       /* 像 app 一样，不会误选中文字 */
+  -webkit-touch-callout: none;
+  min-height: 100dvh;
+}
+input { -webkit-user-select: text; user-select: text; }
